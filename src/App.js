@@ -28,26 +28,28 @@ function App() {
   }, [searching]);
 
   useEffect(() => {
-    const myFavs = JSON.parse(localStorage.getItem('save-my-favourite-movies'));
-    setFaves(myFavs)
+    const myFavs = JSON.parse(localStorage.getItem("save-my-favourite-movies"));
+
+    if (myFavs) {
+      setFaves(myFavs);
+    }
   }, []);
-  
-  const storeLocally = (faves) =>{
-    localStorage.setItem('save-my-favourite-movies',JSON.stringify(faves))
+
+  const storeLocally = (faves) => {
+    localStorage.setItem("save-my-favourite-movies", JSON.stringify(faves));
   };
 
   const addToFaves = (movie) => {
     const newFaves = [...faves, movie];
     setFaves(newFaves);
-    storeLocally(newFaves)
+    storeLocally(newFaves);
   };
 
   const removeFromFaves = (movie) => {
     const newFaveList = faves.filter((fave) => fave.imdbID !== movie.imdbID);
     setFaves(newFaveList);
-    storeLocally(newFaveList)
+    storeLocally(newFaveList);
   };
-
 
   return (
     <div className="container-fluid mm-app">
@@ -66,7 +68,7 @@ function App() {
         <Heading heading="Faves" />
       </div>
       <div className="row">
-      <MovieList
+        <MovieList
           movies={faves}
           favourite={removeFave}
           handleClick={removeFromFaves}
