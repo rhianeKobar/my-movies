@@ -4,7 +4,7 @@ function removeFave() {
   return (
     <>
       <span className="m-2">
-        Remove from Faves
+        Remove from List
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

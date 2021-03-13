@@ -65,7 +65,7 @@ function App() {
         />
       </div>
       <div className="row d-flex align-items-center mt-4 mb-4">
-        <Heading heading="Faves" />
+        <Heading heading="Watch List" />
       </div>
       <div className="row">
         <MovieList
