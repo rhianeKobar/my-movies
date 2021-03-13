@@ -21,7 +21,7 @@ function App() {
       setMovies(jsonResponse.Search);
     }
   };
-
+  //random add to make commit that hjopefully deploys
   useEffect(() => {
     getMovies(searching);
   }, [searching]);
