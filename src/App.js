@@ -4,24 +4,28 @@ import './App.css';
 import MovieList from './components/movieList';
 import Heading from './components/Heading';
 import Search from './components/Search';
-//http://www.omdbapi.com/s=funny&apikey=321a95e5
-function App() {
-  const [movies, setMovies] = useState([])
-  const [searching, setSearching] = useState('')
 
-  const getMovies = async() =>{
-    const url = 'http://www.omdbapi.com/?s=lip&apikey=321a95e5'
+//http://www.omdbapi.com/s=funny&apikey=321a95e5
+
+function App() {
+  const [movies, setMovies] = useState([]);
+  const [searching, setSearching] = useState('');
+  //const [faves, setFaves] = useState([]);
+
+  const getMovies = async(searching) =>{
+    const url = `http://www.omdbapi.com/?s=${searching}&apikey=321a95e5`;
     const response = await fetch(url);
     const jsonResponse= await response.json();
-    if(jsonResponse){
-      return setMovies(jsonResponse.Search)
+    if(jsonResponse.Search){
+      setMovies(jsonResponse.Search);
     }
+    
     
   }
 
-  useEffect(()=>{
-    getMovies();
-  },[])
+  useEffect(() => {
+    getMovies(searching);
+  },[searching]);
   
   return (
     <div className="container-fluid mm-app">
