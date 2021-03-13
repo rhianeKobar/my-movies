@@ -7,7 +7,6 @@ import Search from "./components/Search";
 import addFave from "./components/addFaves";
 import removeFave from "./components/removeFave";
 
-//http://www.omdbapi.com/s=funny&apikey=321a95e5
 
 function App() {
   const [movies, setMovies] = useState([]);
