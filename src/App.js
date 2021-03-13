@@ -14,7 +14,7 @@ function App() {
   const [faves, setFaves] = useState([]);
 
   const getMovies = async (searching) => {
-    const url = `http://www.omdbapi.com/?s=${searching}&apikey=321a95e5`;
+    const url = `https://www.omdbapi.com/?s=${searching}&apikey=321a95e5`;
     const response = await fetch(url);
     const jsonResponse = await response.json();
     if (jsonResponse.Search) {
@@ -64,7 +64,7 @@ function App() {
         />
       </div>
       <div className="row d-flex align-items-center mt-4 mb-4">
-        <Heading heading="Watch List" />
+        <Heading heading="Watchlist" />
       </div>
       <div className="row">
         <MovieList
